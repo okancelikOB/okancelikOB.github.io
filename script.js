@@ -1,5 +1,5 @@
-// Kleine stukjes interactie. De site werkt ook zonder dit script,
-// je mist dan alleen de decoratieve grafieken en de klikbare tijdlijn.
+// Kleine stukjes interactie. De site werkt ook zonder dit script:
+// je mist dan de grafieken, het skill-filter en de klikbare tijdlijn.
 document.documentElement.classList.add("js");
 
 const SVG_NS = "http://www.w3.org/2000/svg";
@@ -45,7 +45,7 @@ function drawCurve(el) {
       </linearGradient>
     </defs>
     <path class="curve-area" d="${area}" fill="url(#${id})"/>
-    <path class="curve-line" d="${line}" pathLength="1"/>`;
+    <path class="curve-line" d="${line}"/>`;
   el.prepend(svg);
 
   const which = el.dataset.dots === "all" ? pts : [pts[n - 1]];
@@ -60,13 +60,13 @@ function drawCurve(el) {
   });
 }
 
-// <div class="bars" data-bars="28" data-seed="1" data-highlight="4">
+// Decoratieve streepjes: <div class="bars" data-bars="28" data-seed="1" data-highlight="4">
 function drawBars(el) {
   const n = Number(el.dataset.bars);
   const seed = Number(el.dataset.seed || 0);
   const hi = Number(el.dataset.highlight || 3);
   for (let i = 0; i < n; i++) {
-    const h = 0.45 + 0.28 * Math.sin(i * 0.55 + seed) + 0.17 * Math.sin(i * 1.7 + seed * 2) + i / n * 0.2;
+    const h = 0.45 + 0.28 * Math.sin(i * 0.55 + seed) + 0.17 * Math.sin(i * 1.7 + seed * 2) + (i / n) * 0.2;
     const bar = document.createElement("span");
     bar.style.setProperty("--h", `${Math.round(Math.min(1, Math.max(0.12, h)) * 100)}%`);
     bar.style.setProperty("--i", i);
@@ -76,13 +76,14 @@ function drawBars(el) {
 }
 
 document.querySelectorAll(".bars[data-bars]").forEach(drawBars);
-document.querySelectorAll(".skill-chart span").forEach((s, i) => s.style.setProperty("--i", i));
 document.querySelectorAll(".curve[data-curve]:not(.tracker-chart)").forEach(drawCurve);
 
-// Werkervaring: tabs die de curve en het detailpaneel aansturen.
+// ---------- Werkervaring: tabs die de curve en het detailpaneel aansturen ----------
+
+let trackerDots = [];
 const tracker = document.querySelector("[data-tracker]");
 if (tracker) {
-  const dots = drawCurve(tracker.querySelector(".tracker-chart"));
+  trackerDots = drawCurve(tracker.querySelector(".tracker-chart"));
   const tabs = [...tracker.querySelectorAll('[role="tab"]')];
   const panels = tabs.map((t) => document.getElementById(t.getAttribute("aria-controls")));
 
@@ -92,7 +93,7 @@ if (tracker) {
       tab.setAttribute("aria-selected", active);
       tab.tabIndex = active ? 0 : -1;
       panels[i].hidden = !active;
-      dots[i]?.classList.toggle("is-active", active);
+      trackerDots[i]?.classList.toggle("is-active", active);
     });
     if (focus) tabs[index].focus();
   };
@@ -110,5 +111,106 @@ if (tracker) {
       }
     });
   });
-  select(0);
+  select(tabs.length - 1); // start bij de huidige rol
+}
+
+// ---------- Skill-filter: klik een skill, zie waar hij gebruikt is ----------
+
+const targets = [...document.querySelectorAll("[data-skills]")];
+const skillsOf = (el) => el.dataset.skills.split(" ").filter(Boolean);
+// Tel rollen (tabs) en projecten, niet de "Waar ik goed in ben"-kaarten.
+const counted = targets.filter((el) => !el.classList.contains("strength"));
+const countFor = (key) => counted.filter((el) => skillsOf(el).includes(key)).length;
+
+const skillButtons = [...document.querySelectorAll(".skill[data-skill]")];
+const chart = document.querySelector(".skill-chart");
+const groupOf = (btn) => [...btn.closest(".skill-groups").children].indexOf(btn.closest(".skill-groups > div")) + 1;
+
+if (chart) {
+  const max = Math.max(...skillButtons.map((b) => countFor(b.dataset.skill)));
+  skillButtons.forEach((btn, i) => {
+    const count = countFor(btn.dataset.skill);
+    btn.dataset.count = count;
+    btn.setAttribute("aria-label", `${btn.textContent}, ${count}× ingezet`);
+    const bar = document.createElement("span");
+    bar.dataset.g = groupOf(btn);
+    bar.dataset.skill = btn.dataset.skill;
+    bar.style.setProperty("--h", `${Math.max(8, (count / max) * 100)}%`);
+    bar.style.setProperty("--i", i);
+    chart.append(bar);
+  });
+}
+
+const filterBar = document.querySelector(".filter-bar");
+const allFilterButtons = [...document.querySelectorAll("button[data-skill]")];
+allFilterButtons.forEach((b) => b.setAttribute("aria-pressed", "false"));
+let activeSkill = null;
+
+function setFilter(key) {
+  activeSkill = key === activeSkill ? null : key;
+  document.body.classList.toggle("is-filtering", !!activeSkill);
+
+  allFilterButtons.forEach((b) => b.setAttribute("aria-pressed", b.dataset.skill === activeSkill));
+  targets.forEach((el) => el.classList.toggle("is-match", !!activeSkill && skillsOf(el).includes(activeSkill)));
+  trackerDots.forEach((dot, i) => {
+    const tab = document.getElementById(`tab-${i + 1}`);
+    dot.classList.toggle("is-match", !!activeSkill && tab?.classList.contains("is-match"));
+  });
+  if (chart) {
+    chart.classList.toggle("has-selection", !!activeSkill);
+    chart.querySelectorAll("span").forEach((s) => s.classList.toggle("is-selected", s.dataset.skill === activeSkill));
+  }
+
+  if (filterBar) {
+    filterBar.hidden = !activeSkill;
+    if (activeSkill) {
+      const name = skillButtons.find((b) => b.dataset.skill === activeSkill)?.textContent || activeSkill;
+      const n = countFor(activeSkill);
+      filterBar.querySelector("p").textContent = `${name}: ${n} ${n === 1 ? "rol of project" : "rollen en projecten"} uitgelicht`;
+    }
+  }
+}
+
+allFilterButtons.forEach((b) => b.addEventListener("click", () => setFilter(b.dataset.skill)));
+filterBar?.querySelector(".filter-clear").addEventListener("click", () => setFilter(activeSkill));
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && activeSkill) setFilter(activeSkill);
+});
+
+// ---------- Projecten openklappen ----------
+
+document.querySelectorAll(".more-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const open = btn.getAttribute("aria-expanded") !== "true";
+    btn.setAttribute("aria-expanded", open);
+    btn.textContent = open ? "Minder" : "Meer details";
+    btn.closest(".project").classList.toggle("is-open", open);
+  });
+});
+
+// ---------- Navigatie: de zwarte pill loopt mee met de sectie in beeld ----------
+
+const nav = document.querySelector(".nav");
+const navLinks = [...document.querySelectorAll('.nav a[href*="#"]')];
+const sections = navLinks
+  .map((a) => document.getElementById(a.hash.slice(1)))
+  .filter(Boolean);
+
+if (sections.length && "IntersectionObserver" in window) {
+  const setActive = (id) => {
+    navLinks.forEach((a) => {
+      const active = a.hash === `#${id}`;
+      if (active) {
+        a.setAttribute("aria-current", "true");
+        nav.scrollTo({ left: a.offsetLeft - 16, behavior: "smooth" });
+      } else {
+        a.removeAttribute("aria-current");
+      }
+    });
+  };
+  const observer = new IntersectionObserver(
+    (entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
+    { rootMargin: "-35% 0px -60% 0px" }
+  );
+  sections.forEach((s) => observer.observe(s));
 }
