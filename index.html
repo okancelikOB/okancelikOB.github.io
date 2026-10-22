@@ -3,34 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mijn website</title>
-  <style>
-    body {
-      font-family: system-ui, sans-serif;
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 40px 20px;
-      line-height: 1.6;
-      color: #222;
-      background: #fafafa;
-    }
-    h1 { color: #2b6cb0; }
-    nav a { margin-right: 15px; color: #2b6cb0; text-decoration: none; }
-    footer { margin-top: 60px; font-size: 0.9em; color: #777; }
-  </style>
+  <title>Mijn Blog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="over.html">Over mij</a>
+
+  <nav class="nav">
+    <a href="index.html" class="logo">Mijn Blog</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="over.html">Over mij</a>
+    </div>
   </nav>
 
-  <h1>Welkom op mijn website!</h1>
-  <p>Hoi, ik ben [jouw naam]. Dit is mijn eerste website, gebouwd en gratis gehost met GitHub Pages.</p>
+  <!-- Uitgelichte post -->
+  <section class="hero">
+    <a href="post-1.html" class="hero-inner" style="background-image: url('https://picsum.photos/seed/bergen/1600/900');">
+      <div class="hero-text">
+        <span class="tag">Uitgelicht</span>
+        <h1>Een week wandelen door de Alpen</h1>
+        <p>Wat ik leerde van zeven dagen zonder wifi, met alleen een rugzak en een kaart.</p>
+      </div>
+    </a>
+  </section>
 
-  <h2>Wat ik doe</h2>
-  <p>Schrijf hier iets over jezelf, je hobby's, je werk of je project.</p>
+  <h2 class="section-title">Nieuwste verhalen</h2>
 
-  <footer>&copy; 2026 [jouw naam]</footer>
+  <section class="grid">
+    <a href="post-1.html" class="card">
+      <img src="https://picsum.photos/seed/koffie/800/500" alt="Kop koffie">
+      <div class="card-body">
+        <span class="meta">Lifestyle · 18 okt 2026</span>
+        <h3>Mijn perfecte zondagochtend</h3>
+        <p>Koffie, een goed boek en nergens heen hoeven. Zo ziet mijn ideale start van de week eruit.</p>
+      </div>
+    </a>
+
+    <a href="post-1.html" class="card">
+      <img src="https://picsum.photos/seed/stad/800/500" alt="Stad">
+      <div class="card-body">
+        <span class="meta">Reizen · 10 okt 2026</span>
+        <h3>48 uur in Lissabon</h3>
+        <p>De mooiste uitzichtpunten, de beste pastéis de nata en een paar verborgen plekjes.</p>
+      </div>
+    </a>
+
+    <a href="post-1.html" class="card">
+      <img src="https://picsum.photos/seed/keuken/800/500" alt="Eten">
+      <div class="card-body">
+        <span class="meta">Koken · 2 okt 2026</span>
+        <h3>Herfstsoep die altijd lukt</h3>
+        <p>Een simpel recept met pompoen en gember, klaar in een half uur.</p>
+      </div>
+    </a>
+  </section>
+
+  <footer>© 2026 Mijn Blog · Gemaakt met GitHub Pages</footer>
+
 </body>
 </html>
