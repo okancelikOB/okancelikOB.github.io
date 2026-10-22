@@ -279,21 +279,8 @@ a { color: var(--link); text-underline-offset: 3px; }
 .hero-curve .curve-dot { background: #fff; }
 .hero-curve .curve-line { stroke-width: 2.5; }
 
-/* Halve-cirkelmeter */
-.gauge { position: relative; max-width: 220px; margin: 12px auto 0; }
-.gauge svg { width: 100%; height: auto; }
-.gauge-value {
-  position: absolute;
-  inset: auto 0 0;
-  text-align: center;
-  font-size: 48px;
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -0.04em;
-}
-
 /* Talen */
-.lang-list { display: grid; gap: 10px; margin-top: 16px; }
+.lang-list { display: grid; gap: 14px; margin-top: 20px; }
 .lang-list li { display: flex; justify-content: space-between; gap: 8px; font-size: 15px; }
 .lang-list span { color: var(--muted); font-size: 14px; }
 
@@ -366,7 +353,7 @@ html:not(.js) .axis { display: none; }
 
 /* ---------- Skills ---------- */
 
-.skill-chart { height: 150px; margin-top: 8px; }
+.skill-chart { height: 120px; margin-top: 20px; }
 .skill-chart span { width: 3px; }
 .skill-chart span[data-g="1"] { background: var(--violet); }
 .skill-chart span[data-g="2"] { background: var(--lavender); }
@@ -374,13 +361,11 @@ html:not(.js) .axis { display: none; }
 .skill-chart span[data-g="4"] { background: var(--ink); }
 
 .skill-groups { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 20px; }
-.skill-groups h3 { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted); margin-bottom: 8px; }
-.skill-groups h3::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--c); }
 .skill-groups li { font-size: 15px; }
 
 /* ---------- Opleiding ---------- */
 
-.steps { position: relative; display: grid; gap: 22px; margin-top: 8px; }
+.steps { position: relative; display: grid; gap: 22px; margin-top: 20px; }
 .steps::before {
   content: "";
   position: absolute;
@@ -402,14 +387,13 @@ html:not(.js) .axis { display: none; }
   background: #fff;
   border: 2px solid var(--violet);
 }
-.steps li:first-child::before { background: var(--violet); }
+.steps li:last-child::before { background: var(--violet); }
 .steps strong { display: block; font-weight: 500; }
 
 /* ---------- Projecten ---------- */
 
 .project { display: flex; flex-direction: column; gap: 12px; }
 .project p { color: var(--muted); font-size: 15px; }
-.project .chips { margin-top: auto; padding-top: 8px; }
 
 .diverge { margin-top: 8px; }
 .diverge-row { display: grid; grid-template-columns: 90px 1fr 64px; align-items: center; gap: 12px; font-size: 14px; }
@@ -488,124 +472,70 @@ html:not(.js) .axis { display: none; }
 
 /* ---------- Secties ---------- */
 
-.section { margin-top: var(--gap); }
+.section { margin-top: 56px; }
 .section-head {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: baseline;
-  gap: 8px 16px;
-  margin: 48px 4px 16px;
-}
-
-.facts { grid-column: 1 / span 4; grid-row: 1; display: flex; flex-direction: column; }
-.facts dl { display: grid; gap: 18px; margin: 20px 0 0; }
-.facts dt { font-size: 13px; color: var(--muted); }
-.facts dd { margin: 2px 0 0; font-size: 16px; }
-
-.strength { display: flex; flex-direction: column; gap: 12px; }
-.strength p { color: var(--muted); font-size: 15px; }
-.strength .chips { margin-top: auto; padding-top: 8px; }
-.strength-icon {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  background: var(--tint);
-  color: var(--link);
-}
-.strength-icon svg { width: 22px; height: 22px; }
-
-.stat { display: flex; flex-direction: column; color: var(--ink); text-decoration: none; }
-a.stat:hover { background: #FCFBFF; }
-a.stat .more { margin-top: auto; }
-.center { text-align: center; margin-top: 10px; }
-
-/* ---------- Skill-filter ---------- */
-
-button.chip, .skill { font: inherit; border: 0; cursor: pointer; }
-button.chip { font-size: 13px; }
-button.chip:hover { background: var(--tint); }
-.chip--static { color: var(--muted); }
-
-.skill {
-  display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 2px 0;
-  background: none;
-  color: var(--ink);
-  font-size: 15px;
-  text-align: left;
+  gap: 12px 16px;
+  margin: 0 4px 16px;
 }
-.skill:hover { color: var(--link); }
-.skill::after {
-  content: attr(data-count);
-  font-size: 12px;
-  color: var(--muted);
+.section-head .title { font-size: clamp(26px, 2.8vw, 34px); }
+
+/* Kerncijfers naast het paarse paneel */
+.keystats { grid-column: 1 / span 4; grid-row: 1; display: flex; flex-direction: column; }
+.keystats dl { display: flex; flex-direction: column; flex: 1; justify-content: space-around; margin: 8px 0 0; }
+.keystats dl > div { padding-block: 14px; }
+.keystats dl > div + div { border-top: 1px solid var(--line); }
+.keystats dt { font-size: 14px; color: var(--muted); }
+.keystats dd {
+  order: -1;
+  margin: 0;
+  font-size: clamp(40px, 4vw, 56px);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
 }
+.keystats dl > div { display: flex; flex-direction: column; }
 
-button.chip[aria-pressed="true"],
-.skill[aria-pressed="true"] { background: var(--ink); color: #fff; }
-.skill[aria-pressed="true"] { padding: 2px 10px; border-radius: 999px; }
-.skill[aria-pressed="true"]::after { color: #fff; opacity: 0.7; }
+/* Skills */
+.skill-groups h4 { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; font-size: 14px; font-weight: 400; color: var(--muted); }
+.skill-groups h4::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--c); }
 
-.skill-chart span { transition: opacity 0.2s, background 0.2s; }
-.skill-chart.has-selection span:not(.is-selected) { opacity: 0.25; }
+/* Contact */
+.lead-text { font-size: 18px; font-weight: 300; margin-bottom: 12px; }
 
-[data-skills] { transition: opacity 0.25s, box-shadow 0.25s; }
-.is-filtering [data-skills]:not(.is-match) { opacity: 0.35; }
-.is-filtering .panel.is-match,
-.is-filtering .tracker-steps .is-match { box-shadow: inset 0 0 0 2px var(--violet); }
-.tracker-chart .curve-dot.is-match { border-color: var(--link); background: var(--tint); }
+/* ---------- Projecten: filter + gelijke kaarten ---------- */
 
-.filter-bar {
-  position: fixed;
-  left: 50%;
-  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
-  z-index: 30;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  max-width: calc(100% - 32px);
-  padding: 8px 8px 8px 20px;
-  border-radius: 999px;
-  background: var(--ink);
-  color: #fff;
-  font-size: 14px;
-  transform: translateX(-50%);
-}
-.filter-clear {
-  flex: none;
+.filters { display: flex; flex-wrap: wrap; gap: 6px; }
+.filter {
   font: inherit;
-  padding: 8px 14px;
+  font-size: 14px;
+  padding: 8px 16px;
   border: 0;
   border-radius: 999px;
-  background: #fff;
+  background: var(--panel);
   color: var(--ink);
   cursor: pointer;
 }
-.filter-bar :focus-visible { outline-color: #fff; }
-
-/* ---------- Uitklapbare projecten ---------- */
+.filter:hover { background: var(--tint); }
+.filter[aria-pressed="true"] { background: var(--ink); color: #fff; }
 
 .projects { grid-auto-flow: row dense; }
+.projects .project { grid-column: span 3; }
+.project .title { font-size: 22px; }
+.project .tech { font-size: 14px; color: var(--muted); }
+
 html.js .project-more { display: none; }
 .project.is-open { grid-column: 1 / -1; }
-.project.is-open .project-more { display: grid; gap: 12px; max-width: 72ch; }
+.project.is-open .project-more { display: grid; gap: 14px; max-width: 72ch; }
 .project-more p { color: var(--ink); }
-.project-foot {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  margin-top: auto;
-  padding-top: 8px;
-}
-.project-foot .chips { margin-top: 0; padding-top: 0; }
+
 .more-btn {
+  align-self: flex-start;
+  margin-top: auto;
   font: inherit;
   font-size: 14px;
   padding: 8px 16px;
@@ -617,7 +547,8 @@ html.js .project-more { display: none; }
 }
 .more-btn:hover { background: var(--tint); }
 .more-btn[aria-expanded="true"] { background: var(--ink); color: #fff; }
-html:not(.js) .more-btn { display: none; }
+html:not(.js) .more-btn,
+html:not(.js) .filters { display: none; }
 
 /* ---------- Footer ---------- */
 
@@ -655,7 +586,11 @@ main { padding-bottom: 8px; }
   .bento { grid-template-columns: repeat(6, minmax(0, 1fr)); }
   .span-3 { grid-column: span 3; }
   .span-4, .span-5, .span-6, .span-7, .span-8, .span-12 { grid-column: span 6; }
-  .hero, .facts { grid-column: 1 / -1; grid-row: auto; min-height: 0; }
+  .hero, .keystats { grid-column: 1 / -1; grid-row: auto; min-height: 0; }
+  .keystats dl { flex-direction: row; flex-wrap: wrap; gap: 0 32px; }
+  .keystats dl > div + div { border-top: 0; }
+  .projects .project { grid-column: span 3; }
+  .projects .project.is-open { grid-column: 1 / -1; }
   .tracker-steps { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .skill-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -669,7 +604,7 @@ main { padding-bottom: 8px; }
   .nav { justify-self: stretch; }
   .nav ul { justify-content: space-between; }
   .nav ul { gap: 0; }
-  .nav a { padding: 8px 10px; font-size: 15px; }
+  .nav a { padding: 8px 9px; font-size: 14px; }
   .logo { padding-left: 6px; }
 }
 

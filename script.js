@@ -114,67 +114,41 @@ if (tracker) {
   select(tabs.length - 1); // start bij de huidige rol
 }
 
-// ---------- Skill-filter: klik een skill, zie waar hij gebruikt is ----------
+// ---------- Skillgrafiek: balkhoogte = aantal rollen en projecten met die skill ----------
 
-const targets = [...document.querySelectorAll("[data-skills]")];
-const skillsOf = (el) => el.dataset.skills.split(" ").filter(Boolean);
-// Tel rollen (tabs) en projecten, niet de "Waar ik goed in ben"-kaarten.
-const counted = targets.filter((el) => !el.classList.contains("strength"));
-const countFor = (key) => counted.filter((el) => skillsOf(el).includes(key)).length;
-
-const skillButtons = [...document.querySelectorAll(".skill[data-skill]")];
+const skillCarriers = [...document.querySelectorAll("[data-skills]")];
+const countFor = (key) => skillCarriers.filter((el) => el.dataset.skills.split(" ").includes(key)).length;
 const chart = document.querySelector(".skill-chart");
-const groupOf = (btn) => [...btn.closest(".skill-groups").children].indexOf(btn.closest(".skill-groups > div")) + 1;
 
 if (chart) {
-  const max = Math.max(...skillButtons.map((b) => countFor(b.dataset.skill)));
-  skillButtons.forEach((btn, i) => {
-    const count = countFor(btn.dataset.skill);
-    btn.dataset.count = count;
-    btn.setAttribute("aria-label", `${btn.textContent}, ${count}× ingezet`);
+  const items = [...document.querySelectorAll(".skill-groups li[data-skill]")];
+  const max = Math.max(...items.map((li) => countFor(li.dataset.skill)));
+  items.forEach((li, i) => {
     const bar = document.createElement("span");
-    bar.dataset.g = groupOf(btn);
-    bar.dataset.skill = btn.dataset.skill;
-    bar.style.setProperty("--h", `${Math.max(8, (count / max) * 100)}%`);
+    bar.dataset.g = [...li.closest(".skill-groups").children].indexOf(li.closest(".skill-groups > div")) + 1;
+    bar.style.setProperty("--h", `${Math.max(8, (countFor(li.dataset.skill) / max) * 100)}%`);
     bar.style.setProperty("--i", i);
     chart.append(bar);
   });
 }
 
-const filterBar = document.querySelector(".filter-bar");
-const allFilterButtons = [...document.querySelectorAll("button[data-skill]")];
-allFilterButtons.forEach((b) => b.setAttribute("aria-pressed", "false"));
-let activeSkill = null;
+// ---------- Projecten filteren op categorie ----------
 
-function setFilter(key) {
-  activeSkill = key === activeSkill ? null : key;
-  document.body.classList.toggle("is-filtering", !!activeSkill);
+const filters = [...document.querySelectorAll(".filter[data-filter]")];
+const projects = [...document.querySelectorAll(".project[data-cat]")];
+const filterStatus = document.querySelector("[data-filter-status]");
 
-  allFilterButtons.forEach((b) => b.setAttribute("aria-pressed", b.dataset.skill === activeSkill));
-  targets.forEach((el) => el.classList.toggle("is-match", !!activeSkill && skillsOf(el).includes(activeSkill)));
-  trackerDots.forEach((dot, i) => {
-    const tab = document.getElementById(`tab-${i + 1}`);
-    dot.classList.toggle("is-match", !!activeSkill && tab?.classList.contains("is-match"));
+filters.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const cat = btn.dataset.filter;
+    filters.forEach((b) => b.setAttribute("aria-pressed", b === btn));
+    let shown = 0;
+    projects.forEach((p) => {
+      p.hidden = cat !== "all" && p.dataset.cat !== cat;
+      if (!p.hidden) shown++;
+    });
+    if (filterStatus) filterStatus.textContent = `${shown} ${shown === 1 ? "project" : "projecten"} zichtbaar`;
   });
-  if (chart) {
-    chart.classList.toggle("has-selection", !!activeSkill);
-    chart.querySelectorAll("span").forEach((s) => s.classList.toggle("is-selected", s.dataset.skill === activeSkill));
-  }
-
-  if (filterBar) {
-    filterBar.hidden = !activeSkill;
-    if (activeSkill) {
-      const name = skillButtons.find((b) => b.dataset.skill === activeSkill)?.textContent || activeSkill;
-      const n = countFor(activeSkill);
-      filterBar.querySelector("p").textContent = `${name}: ${n} ${n === 1 ? "rol of project" : "rollen en projecten"} uitgelicht`;
-    }
-  }
-}
-
-allFilterButtons.forEach((b) => b.addEventListener("click", () => setFilter(b.dataset.skill)));
-filterBar?.querySelector(".filter-clear").addEventListener("click", () => setFilter(activeSkill));
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && activeSkill) setFilter(activeSkill);
 });
 
 // ---------- Projecten openklappen ----------

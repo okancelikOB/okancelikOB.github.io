@@ -15,22 +15,15 @@
 <body>
 <a class="skip-link" href="#main">Naar de inhoud</a>
 
-<!--
-  SKILL-FILTER
-  Elk blok met data-skills="..." doet mee aan het filter. Gebruik deze sleutels:
-  m365 copilot copilot-studio power-automate sharepoint agents rag langchain
-  python nlp react typescript nextjs prompt training
--->
-
 <div class="wrap">
   <header class="site-header">
     <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true"></span>Okan Çelik</a>
     <nav class="nav" aria-label="Hoofdnavigatie">
       <ul>
-        <li><a href="index.html#overzicht" aria-current="true">Overzicht</a></li>
-        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#overzicht" aria-current="true">Home</a></li>
         <li><a href="index.html#ervaring">Ervaring</a></li>
         <li><a href="index.html#projecten">Projecten</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
         <li><a href="blog/">Blog</a></li>
       </ul>
     </nav>
@@ -51,10 +44,10 @@
 
   <main id="main">
 
-    <!-- 1. Wie ben je? -->
-    <section class="bento section" id="overzicht" aria-label="Introductie">
+    <!-- 1. INTRO -->
+    <section class="bento" id="overzicht" aria-label="Introductie">
       <div class="panel panel--accent hero">
-        <p class="label">AI-consultant · BSc Artificial Intelligence</p>
+        <p class="label">AI-consultant · BSc Artificial Intelligence (VU Amsterdam)</p>
         <h1>Okan Çelik</h1>
         <p class="intro">Ik zorg dat AI in organisaties echt gebruikt wordt. Ik bouw AI agents en RAG-oplossingen, automatiseer werkprocessen in Microsoft 365 en train collega's zonder techachtergrond om er zelf mee te werken.</p>
         <div class="actions">
@@ -64,414 +57,326 @@
         <div class="curve hero-curve" data-curve="0.15,0.3,0.22,0.45,0.4,0.62,0.58,0.8,0.95" aria-hidden="true"></div>
       </div>
 
-      <div class="panel facts">
-        <h2 class="label">In het kort</h2>
+      <div class="panel keystats">
+        <h2 class="label">Kerncijfers</h2>
         <dl>
-          <div><dt>Nu</dt><dd>AI-consultant bij Berend Botje Kinderopvang</dd></div>
-          <div><dt>Opleiding</dt><dd>BSc Artificial Intelligence, VU Amsterdam</dd></div>
-          <div><dt>Specialisatie</dt><dd>AI agents · RAG · Copilot · Power Automate</dd></div>
-          <div><dt>Talen</dt><dd>Nederlands, Engels, Turks</dd></div>
+          <div>
+            <dt>speeches geanalyseerd in mijn thesis</dt>
+            <dd>192.187</dd>
+          </div>
+          <div>
+            <dt>projecten, waarvan drie AI agents</dt>
+            <dd>8</dd>
+          </div>
+          <div>
+            <dt>trainingsmodules Microsoft 365 ontwikkeld</dt>
+            <dd>4</dd>
+          </div>
         </dl>
       </div>
     </section>
 
-    <!-- 2. Waar ben je goed in? -->
-    <section class="section" aria-labelledby="sterktes-titel">
+    <!-- 2. WERKERVARING: van oud (links) naar nieuw (rechts), zonder jaartallen -->
+    <section class="section" id="ervaring" aria-labelledby="ervaring-titel">
       <div class="section-head">
-        <h2 class="title" id="sterktes-titel">Waar ik goed in ben</h2>
-        <p class="sub">Klik op een skill om te zien waar ik hem heb ingezet.</p>
+        <h2 class="title" id="ervaring-titel">Werkervaring</h2>
+        <p class="sub">Van oud naar nieuw · klik op een rol</p>
       </div>
-      <div class="bento">
-        <article class="panel span-4 strength" data-skills="agents rag langchain python">
-          <span class="strength-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="7" width="14" height="11" rx="3"/><path d="M12 3v4M9 12h.01M15 12h.01M9 15.5h6"/></svg>
-          </span>
-          <h3 class="title">AI agents &amp; RAG</h3>
-          <p>Agents die tickets analyseren, tools aanroepen en antwoorden geven op basis van eigen documenten.</p>
-          <div class="chips">
-            <button class="chip" data-skill="agents">AI agents</button>
-            <button class="chip" data-skill="rag">RAG</button>
-            <button class="chip" data-skill="langchain">LangChain</button>
-          </div>
-        </article>
-        <article class="panel span-4 strength" data-skills="training prompt copilot m365">
-          <span class="strength-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-4 9 4-9 4-9-4Z"/><path d="M7 10v5c0 1.5 2.2 3 5 3s5-1.5 5-3v-5"/></svg>
-          </span>
-          <h3 class="title">AI-trainingen &amp; adoptie</h3>
-          <p>Copilot-trainingen op basis- en advanced-niveau, een cursus prompting en een Microsoft 365-programma van vier modules.</p>
-          <div class="chips">
-            <button class="chip" data-skill="training">AI-trainingen</button>
-            <button class="chip" data-skill="prompt">Prompt engineering</button>
-            <button class="chip" data-skill="copilot">Copilot</button>
-          </div>
-        </article>
-        <article class="panel span-4 strength" data-skills="power-automate copilot-studio sharepoint m365">
-          <span class="strength-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.5 6H14a4 4 0 0 1 4 4v5.5M6 8.5V14a4 4 0 0 0 4 4h5.5"/></svg>
-          </span>
-          <h3 class="title">Procesautomatisering</h3>
-          <p>Werkprocessen zoals onboarding automatiseren, en een e-mailantwoordsysteem bouwen in Copilot Studio.</p>
-          <div class="chips">
-            <button class="chip" data-skill="power-automate">Power Automate</button>
-            <button class="chip" data-skill="copilot-studio">Copilot Studio</button>
-            <button class="chip" data-skill="sharepoint">SharePoint</button>
-          </div>
-        </article>
+
+      <div class="panel" data-tracker>
+        <div class="axis" aria-hidden="true"><span>Eerder</span><span>Nu</span></div>
+        <div class="curve tracker-chart" data-curve="0.12,0.3,0.24,0.46,0.4,0.7,0.92" data-dots="all" data-spread="center"></div>
+
+        <div class="tracker-steps" role="tablist" aria-label="Rollen, van oud naar nieuw">
+          <button role="tab" id="tab-1" aria-controls="rol-1" data-skills=""><span class="org">Diverse</span><span class="role-name">Bijbanen</span></button>
+          <button role="tab" id="tab-2" aria-controls="rol-2" data-skills=""><span class="org">Excellence Sales</span><span class="role-name">Sales Representative</span></button>
+          <button role="tab" id="tab-3" aria-controls="rol-3" data-skills=""><span class="org">GGD GHOR</span><span class="role-name">Medische informatielijn</span></button>
+          <button role="tab" id="tab-4" aria-controls="rol-4" data-skills=""><span class="org">GGD GHOR</span><span class="role-name">Covid-19 Sampler</span></button>
+          <button role="tab" id="tab-5" aria-controls="rol-5" data-skills="training"><span class="org">NDI ICT Solutions</span><span class="role-name">Service Desk Engineer</span></button>
+          <button role="tab" id="tab-6" aria-controls="rol-6" data-skills="agents langchain react typescript prompt"><span class="org">Benmate</span><span class="role-name">Eigenaar</span></button>
+          <button role="tab" id="tab-7" aria-controls="rol-7" data-skills="m365 copilot copilot-studio power-automate sharepoint agents rag prompt training nextjs"><span class="org">Berend Botje</span><span class="role-name">AI-consultant</span></button>
+        </div>
+
+        <div class="tracker-detail" role="tabpanel" id="rol-1" aria-labelledby="tab-1">
+          <h3>Eerdere bijbanen</h3>
+          <p class="label">Retail en logistiek</p>
+          <ul>
+            <li>Diverse bijbanen in retail en logistiek</li>
+          </ul>
+        </div>
+        <div class="tracker-detail" role="tabpanel" id="rol-2" aria-labelledby="tab-2">
+          <h3>Sales Representative</h3>
+          <p class="label">Excellence Sales</p>
+          <ul>
+            <li>Directe verkoop en klantgesprekken</li>
+          </ul>
+        </div>
+        <div class="tracker-detail" role="tabpanel" id="rol-3" aria-labelledby="tab-3">
+          <h3>Medewerker medische informatielijn</h3>
+          <p class="label">GGD GHOR</p>
+          <ul>
+            <li>Telefonisch vragen van burgers beantwoorden</li>
+          </ul>
+        </div>
+        <div class="tracker-detail" role="tabpanel" id="rol-4" aria-labelledby="tab-4">
+          <h3>Covid-19 Sampler</h3>
+          <p class="label">GGD GHOR</p>
+          <ul>
+            <li>Afnemen van Covid-19-tests op de testlocatie</li>
+          </ul>
+        </div>
+        <div class="tracker-detail" role="tabpanel" id="rol-5" aria-labelledby="tab-5">
+          <h3>Skilled Service Desk Engineer</h3>
+          <p class="label">NDI ICT Solutions</p>
+          <ul>
+            <li>Complexe hardware- en softwareproblemen oplossen</li>
+            <li>Remote en on-site support</li>
+            <li>Systeemupdates en netwerkverbeteringen</li>
+            <li>Incident management</li>
+            <li>Onboarding en coaching van nieuwe collega's</li>
+            <li>Interne e-learnings over AI</li>
+          </ul>
+        </div>
+        <div class="tracker-detail" role="tabpanel" id="rol-6" aria-labelledby="tab-6">
+          <h3>Eigenaar</h3>
+          <p class="label">Benmate AI Automation</p>
+          <ul>
+            <li>AI-gedreven procesautomatisering voor klanten</li>
+            <li>Website gebouwd in React, TypeScript en Vite</li>
+            <li>AI agents met LangChain en directe API's</li>
+          </ul>
+        </div>
+        <div class="tracker-detail" role="tabpanel" id="rol-7" aria-labelledby="tab-7">
+          <h3>AI-consultant</h3>
+          <p class="label">Berend Botje Kinderopvang · huidig</p>
+          <ul>
+            <li>AI-trainingen: Copilot prompts basis en advanced</li>
+            <li>AI agents en RAG agents bouwen</li>
+            <li>Werkprocessen automatiseren met Power Automate, zoals onboarding</li>
+            <li>Geautomatiseerd e-mailantwoordsysteem met Copilot Studio</li>
+            <li>Microsoft 365-trainingsprogramma van vier modules</li>
+            <li>Beheer van de SharePoint-website</li>
+            <li>AI-adoptie in de organisatie aanjagen</li>
+            <li>Eigen dashboard en een GEO Analyzer web app (Next.js, Gemini API)</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <!-- 3. Bewijs in cijfers -->
-    <section class="section bento" aria-label="In cijfers">
-      <a class="panel span-3 stat" href="#p-thesis-card">
-        <span class="label">Bachelor thesis</span>
-        <span class="big">192.187</span>
-        <span class="sub">Tweede Kamer-speeches geanalyseerd met NLP</span>
-        <span class="more">Naar de thesis →</span>
-      </a>
-      <a class="panel span-3 stat" href="#projecten">
-        <span class="label">Projecten</span>
-        <span class="big">8</span>
-        <span class="sub">waarvan drie AI agents</span>
-        <span class="more">Bekijk projecten →</span>
-      </a>
-      <div class="panel span-3 stat">
-        <span class="label">Trainingsprogramma</span>
-        <div class="gauge" aria-hidden="true">
-          <svg viewBox="0 0 120 66">
-            <defs>
-              <linearGradient id="gauge-grad" x1="0" x2="1">
-                <stop offset="0" stop-color="#A78BFA"/>
-                <stop offset="0.6" stop-color="#8B5CF6"/>
-                <stop offset="1" stop-color="#6E8BFF"/>
-              </linearGradient>
-            </defs>
-            <path d="M10 60 A50 50 0 0 1 110 60" fill="none" stroke="url(#gauge-grad)" stroke-width="9" stroke-dasharray="36.27 4"/>
-          </svg>
-          <span class="gauge-value">4</span>
-        </div>
-        <span class="sub center">modules Microsoft 365, zelf ontwikkeld en gegeven</span>
-      </div>
-      <div class="panel span-3 stat">
-        <span class="label">Talen</span>
-        <span class="big">3</span>
-        <ul class="lang-list">
-          <li>Turks <span>moedertaal</span></li>
-          <li>Nederlands <span>vloeiend</span></li>
-          <li>Engels <span>vloeiend</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- 4. Skills (cross-filter) + opleiding -->
-    <section class="section bento" id="skills" aria-label="Skills en opleiding">
-      <div class="panel span-8">
-        <div class="panel-head">
-          <div>
-            <p class="label">Toolkit</p>
-            <h2 class="title">Skills</h2>
-          </div>
-          <span class="chip chip--static">Balkhoogte = aantal rollen en projecten</span>
-        </div>
-        <!-- De balken worden door script.js gevuld op basis van de data-skills hieronder -->
-        <div class="bars skill-chart" aria-hidden="true"></div>
-        <div class="skill-groups">
-          <div>
-            <h3 style="--c:var(--violet)">Microsoft 365</h3>
-            <ul>
-              <li><button class="skill" data-skill="m365">Microsoft 365</button></li>
-              <li><button class="skill" data-skill="copilot">Copilot</button></li>
-              <li><button class="skill" data-skill="copilot-studio">Copilot Studio</button></li>
-              <li><button class="skill" data-skill="power-automate">Power Automate</button></li>
-              <li><button class="skill" data-skill="sharepoint">SharePoint</button></li>
-            </ul>
-          </div>
-          <div>
-            <h3 style="--c:var(--lavender)">AI</h3>
-            <ul>
-              <li><button class="skill" data-skill="agents">AI agents</button></li>
-              <li><button class="skill" data-skill="rag">RAG</button></li>
-              <li><button class="skill" data-skill="langchain">LangChain</button></li>
-              <li><button class="skill" data-skill="nlp">NLP</button></li>
-              <li><button class="skill" data-skill="prompt">Prompt engineering</button></li>
-            </ul>
-          </div>
-          <div>
-            <h3 style="--c:var(--blue)">Development</h3>
-            <ul>
-              <li><button class="skill" data-skill="python">Python</button></li>
-              <li><button class="skill" data-skill="react">React</button></li>
-              <li><button class="skill" data-skill="typescript">TypeScript</button></li>
-              <li><button class="skill" data-skill="nextjs">Next.js</button></li>
-            </ul>
-          </div>
-          <div>
-            <h3 style="--c:var(--ink)">Training</h3>
-            <ul>
-              <li><button class="skill" data-skill="training">AI-trainingen geven</button></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="panel span-4">
-        <div class="panel-head">
-          <div>
-            <p class="label">Oud → nieuw</p>
-            <h2 class="title">Opleiding</h2>
-          </div>
-        </div>
-        <ol class="steps">
-          <li><strong>VWO</strong><span class="sub">Economie &amp; Maatschappij</span></li>
-          <li><strong>Pre-University College</strong><span class="sub">VU Amsterdam</span></li>
-          <li><strong>BSc Artificial Intelligence</strong><span class="sub">VU Amsterdam</span></li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- 5. Werkervaring: van oud (links) naar nieuw (rechts), zonder jaartallen -->
-    <section class="section panel" id="ervaring" aria-labelledby="ervaring-titel" data-tracker>
-      <div class="panel-head">
-        <div>
-          <p class="label">Loopbaan</p>
-          <h2 class="title" id="ervaring-titel">Werkervaring</h2>
-        </div>
-        <span class="chip chip--static">Oud → nieuw</span>
-      </div>
-
-      <div class="axis" aria-hidden="true"><span>Eerder</span><span>Nu</span></div>
-      <div class="curve tracker-chart" data-curve="0.12,0.3,0.24,0.46,0.4,0.7,0.92" data-dots="all" data-spread="center"></div>
-
-      <div class="tracker-steps" role="tablist" aria-label="Rollen, van oud naar nieuw">
-        <button role="tab" id="tab-1" aria-controls="rol-1" data-skills=""><span class="org">Diverse</span><span class="role-name">Bijbanen</span></button>
-        <button role="tab" id="tab-2" aria-controls="rol-2" data-skills=""><span class="org">Excellence Sales</span><span class="role-name">Sales Representative</span></button>
-        <button role="tab" id="tab-3" aria-controls="rol-3" data-skills=""><span class="org">GGD GHOR</span><span class="role-name">Medische informatielijn</span></button>
-        <button role="tab" id="tab-4" aria-controls="rol-4" data-skills=""><span class="org">GGD GHOR</span><span class="role-name">Covid-19 Sampler</span></button>
-        <button role="tab" id="tab-5" aria-controls="rol-5" data-skills="training"><span class="org">NDI ICT Solutions</span><span class="role-name">Service Desk Engineer</span></button>
-        <button role="tab" id="tab-6" aria-controls="rol-6" data-skills="agents langchain react typescript prompt"><span class="org">Benmate</span><span class="role-name">Eigenaar</span></button>
-        <button role="tab" id="tab-7" aria-controls="rol-7" data-skills="m365 copilot copilot-studio power-automate sharepoint agents rag prompt training nextjs"><span class="org">Berend Botje</span><span class="role-name">AI-consultant</span></button>
-      </div>
-
-      <div class="tracker-detail" role="tabpanel" id="rol-1" aria-labelledby="tab-1">
-        <h3>Eerdere bijbanen</h3>
-        <p class="label">Retail en logistiek</p>
-        <ul>
-          <li>Diverse bijbanen in retail en logistiek</li>
-        </ul>
-      </div>
-      <div class="tracker-detail" role="tabpanel" id="rol-2" aria-labelledby="tab-2">
-        <h3>Sales Representative</h3>
-        <p class="label">Excellence Sales</p>
-        <ul>
-          <li>Directe verkoop en klantgesprekken</li>
-        </ul>
-      </div>
-      <div class="tracker-detail" role="tabpanel" id="rol-3" aria-labelledby="tab-3">
-        <h3>Medewerker medische informatielijn</h3>
-        <p class="label">GGD GHOR</p>
-        <ul>
-          <li>Telefonisch vragen van burgers beantwoorden</li>
-        </ul>
-      </div>
-      <div class="tracker-detail" role="tabpanel" id="rol-4" aria-labelledby="tab-4">
-        <h3>Covid-19 Sampler</h3>
-        <p class="label">GGD GHOR</p>
-        <ul>
-          <li>Afnemen van Covid-19-tests op de testlocatie</li>
-        </ul>
-      </div>
-      <div class="tracker-detail" role="tabpanel" id="rol-5" aria-labelledby="tab-5">
-        <h3>Skilled Service Desk Engineer</h3>
-        <p class="label">NDI ICT Solutions</p>
-        <ul>
-          <li>Complexe hardware- en softwareproblemen oplossen</li>
-          <li>Remote en on-site support</li>
-          <li>Systeemupdates en netwerkverbeteringen</li>
-          <li>Incident management</li>
-          <li>Onboarding en coaching van nieuwe collega's</li>
-          <li>Interne e-learnings over AI</li>
-        </ul>
-      </div>
-      <div class="tracker-detail" role="tabpanel" id="rol-6" aria-labelledby="tab-6">
-        <h3>Eigenaar</h3>
-        <p class="label">Benmate AI Automation</p>
-        <ul>
-          <li>AI-gedreven procesautomatisering voor klanten</li>
-          <li>Website gebouwd in React, TypeScript en Vite</li>
-          <li>AI agents met LangChain en directe API's</li>
-        </ul>
-      </div>
-      <div class="tracker-detail" role="tabpanel" id="rol-7" aria-labelledby="tab-7">
-        <h3>AI-consultant</h3>
-        <p class="label">Berend Botje Kinderopvang · huidig</p>
-        <ul>
-          <li>AI-trainingen: Copilot prompts basis en advanced</li>
-          <li>AI agents en RAG agents bouwen</li>
-          <li>Werkprocessen automatiseren met Power Automate, zoals onboarding</li>
-          <li>Geautomatiseerd e-mailantwoordsysteem met Copilot Studio</li>
-          <li>Microsoft 365-trainingsprogramma van vier modules</li>
-          <li>Beheer van de SharePoint-website</li>
-          <li>AI-adoptie in de organisatie aanjagen</li>
-          <li>Eigen dashboard en een GEO Analyzer web app (Next.js, Gemini API)</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- 6. Projecten. Klik "Meer details" om een kaart over de volle breedte open te klappen. -->
+    <!--
+      3. PROJECTEN
+      data-cat  = categorie voor het filter (agents, training, web, research, game)
+      data-skills = skills voor de telling in de skillgrafiek
+      Alle kaarten zijn even groot; "Meer details" klapt een kaart open over de volle breedte.
+    -->
     <section class="section" id="projecten" aria-labelledby="projecten-titel">
       <div class="section-head">
         <h2 class="title" id="projecten-titel">Projecten</h2>
-        <p class="sub">Open een project voor meer details.</p>
+        <div class="filters" role="group" aria-label="Filter projecten">
+          <button class="filter" data-filter="all" aria-pressed="true">Alle</button>
+          <button class="filter" data-filter="agents" aria-pressed="false">AI agents</button>
+          <button class="filter" data-filter="training" aria-pressed="false">Training</button>
+          <button class="filter" data-filter="web" aria-pressed="false">Web &amp; tools</button>
+          <button class="filter" data-filter="research" aria-pressed="false">Onderzoek</button>
+          <button class="filter" data-filter="game" aria-pressed="false">Game</button>
+        </div>
       </div>
+      <p class="visually-hidden" role="status" aria-live="polite" data-filter-status></p>
+
       <div class="bento projects">
 
-        <article class="panel span-6 project" id="p-thesis-card" data-skills="nlp python">
-          <p class="label">Bachelor thesis · NLP</p>
-          <h3 class="title">Sentiment Shifts in the Dutch Parliament During the Nitrogen Crisis</h3>
-          <p>ParlaSent en RobBERT vergeleken op 192.187 Tweede Kamer-speeches. De keuze van het model draait de conclusie om.</p>
-          <div class="diverge" role="img" aria-label="Sentimentverschuiving per model: ParlaSent min 0,089, RobBERT plus 0,005">
-            <div class="diverge-row"><span>ParlaSent</span><div class="diverge-track"><span class="diverge-bar neg" style="width:44.5%"></span></div><span class="val">−0.089</span></div>
-            <div class="diverge-row"><span>RobBERT</span><div class="diverge-track"><span class="diverge-bar pos" style="width:2.5%"></span></div><span class="val">+0.005</span></div>
-          </div>
+        <article class="panel project" id="p-thesis" data-cat="research" data-skills="nlp python">
+          <p class="label">Onderzoek · Bachelor thesis</p>
+          <h3 class="title">Sentiment in de Tweede Kamer tijdens de stikstofcrisis</h3>
+          <p>192.187 speeches geanalyseerd met twee taalmodellen. De modelkeuze draait de conclusie om.</p>
           <div class="project-more" id="more-thesis">
-            <p>Ik heb het sentiment in Tweede Kamer-speeches tijdens de stikstofcrisis gemeten met twee Nederlandse taalmodellen, ParlaSent en RobBERT. Met een Random Forest en SHAP heb ik onderzocht welke factoren de verschillen verklaren.</p>
-            <p class="key-finding">Kernbevinding: ParlaSent meet een negatieve verschuiving (−0.089), RobBERT nauwelijks iets (+0.005). De keuze van het model bepaalt dus de conclusie.</p>
+            <p><em>Sentiment Shifts in the Dutch Parliament During the Nitrogen Crisis.</em> Ik heb het sentiment in Tweede Kamer-speeches gemeten met ParlaSent en RobBERT, en met een Random Forest en SHAP onderzocht welke factoren de verschillen verklaren.</p>
+            <div class="diverge" role="img" aria-label="Sentimentverschuiving per model: ParlaSent min 0,089, RobBERT plus 0,005">
+              <div class="diverge-row"><span>ParlaSent</span><div class="diverge-track"><span class="diverge-bar neg" style="width:44.5%"></span></div><span class="val">−0.089</span></div>
+              <div class="diverge-row"><span>RobBERT</span><div class="diverge-track"><span class="diverge-bar pos" style="width:2.5%"></span></div><span class="val">+0.005</span></div>
+            </div>
+            <p class="tech">ParlaSent · RobBERT · Random Forest · SHAP · Python</p>
           </div>
-          <div class="project-foot">
-            <div class="chips"><span class="chip">ParlaSent</span><span class="chip">RobBERT</span><span class="chip">Random Forest</span><span class="chip">SHAP</span></div>
-            <button class="more-btn" aria-expanded="false" aria-controls="more-thesis">Meer details</button>
-          </div>
+          <button class="more-btn" aria-expanded="false" aria-controls="more-thesis">Meer details</button>
         </article>
 
-        <!-- AANVULLEN: beschrijf in project-more wat de agent precies doet, met welke tools, en wat het opleverde -->
-        <article class="panel span-3 project" data-skills="agents">
+        <!-- AANVULLEN: wat doet de agent precies, met welke tools, wat leverde het op -->
+        <article class="panel project" data-cat="agents" data-skills="agents">
           <p class="label">AI agent</p>
           <h3 class="title">IT ticket-agent</h3>
-          <p>Een agent die binnenkomende IT-tickets analyseert.</p>
+          <p>Analyseert binnenkomende IT-tickets.</p>
           <div class="project-more" id="more-ticket">
             <p>De agent leest IT-tickets en analyseert de inhoud, zodat de service desk sneller ziet waar een ticket over gaat.</p>
           </div>
-          <div class="project-foot">
-            <div class="chips"><span class="chip">AI agents</span></div>
-            <button class="more-btn" aria-expanded="false" aria-controls="more-ticket">Meer details</button>
-          </div>
+          <button class="more-btn" aria-expanded="false" aria-controls="more-ticket">Meer details</button>
         </article>
 
         <!-- AANVULLEN: welke bronnen, welke tooling, voor wie -->
-        <article class="panel span-3 project" data-skills="agents rag">
+        <article class="panel project" data-cat="agents" data-skills="agents rag">
           <p class="label">AI agent</p>
           <h3 class="title">RAG agents</h3>
-          <p>Agents die antwoorden op basis van eigen documenten en kennisbronnen.</p>
+          <p>Beantwoorden vragen op basis van eigen documenten.</p>
           <div class="project-more" id="more-rag">
-            <p>Met Retrieval-Augmented Generation zoekt de agent eerst de relevante stukken in de eigen documenten op, en baseert hij zijn antwoord daarop in plaats van op algemene kennis.</p>
+            <p>Met Retrieval-Augmented Generation zoekt de agent eerst de relevante stukken in de eigen documenten op en baseert hij zijn antwoord daarop, in plaats van op algemene kennis.</p>
           </div>
-          <div class="project-foot">
-            <div class="chips"><span class="chip">RAG</span><span class="chip">AI agents</span></div>
-            <button class="more-btn" aria-expanded="false" aria-controls="more-rag">Meer details</button>
-          </div>
+          <button class="more-btn" aria-expanded="false" aria-controls="more-rag">Meer details</button>
         </article>
 
-        <!-- AANVULLEN: welke tools kan de agent gebruiken, en wat lost het op -->
-        <article class="panel span-4 project" data-skills="agents">
+        <!-- AANVULLEN: welke tools kan de agent gebruiken, wat lost het op -->
+        <article class="panel project" data-cat="agents" data-skills="agents">
           <p class="label">AI agent</p>
           <h3 class="title">Tool-using agent</h3>
-          <p>Een agent die zelfstandig tools aanroept om een taak af te ronden.</p>
+          <p>Roept zelfstandig tools aan om een taak af te ronden.</p>
           <div class="project-more" id="more-tools">
-            <p>In plaats van alleen tekst te genereren, kiest de agent zelf welke tool of API hij nodig heeft, voert die uit en gebruikt het resultaat in zijn volgende stap.</p>
+            <p>In plaats van alleen tekst te genereren, kiest de agent zelf welke tool of API hij nodig heeft, voert die uit en gebruikt het resultaat in de volgende stap.</p>
           </div>
-          <div class="project-foot">
-            <div class="chips"><span class="chip">AI agents</span><span class="chip">Tool use</span></div>
-            <button class="more-btn" aria-expanded="false" aria-controls="more-tools">Meer details</button>
-          </div>
+          <button class="more-btn" aria-expanded="false" aria-controls="more-tools">Meer details</button>
         </article>
 
         <!-- AANVULLEN: voor wie, hoeveel sessies, wat leerden deelnemers -->
-        <article class="panel span-4 project" data-skills="prompt training copilot">
+        <article class="panel project" data-cat="training" data-skills="prompt training copilot">
           <p class="label">Training</p>
           <h3 class="title">Cursus prompting</h3>
-          <p>Een cursus voor collega's over het schrijven van goede prompts.</p>
+          <p>Collega's leren goede prompts schrijven.</p>
           <div class="project-more" id="more-cursus">
             <p>Praktisch opgezet: deelnemers oefenen met taken uit hun eigen werk en leren een prompt opbouwen uit rol, taak, doelgroep en vorm.</p>
             <p><a href="blog/posts/wat-ik-leerde-van-ai-trainingen.html">Lees wat ik leerde van het geven van AI-trainingen →</a></p>
           </div>
-          <div class="project-foot">
-            <div class="chips"><span class="chip">Prompt engineering</span></div>
-            <button class="more-btn" aria-expanded="false" aria-controls="more-cursus">Meer details</button>
-          </div>
+          <button class="more-btn" aria-expanded="false" aria-controls="more-cursus">Meer details</button>
         </article>
 
-        <article class="panel span-4 project" data-skills="nextjs react">
+        <article class="panel project" data-cat="web" data-skills="nextjs react">
           <p class="label">Web app</p>
           <h3 class="title">GEO Analyzer</h3>
           <p>Analyseert websites op Generative Engine Optimization.</p>
           <div class="project-more" id="more-geo">
-            <p>De app beoordeelt hoe goed een website te begrijpen is voor AI-zoekmachines en generatieve modellen. Gebouwd met Next.js en de Gemini API.</p>
+            <p>De app beoordeelt hoe goed een website te begrijpen is voor AI-zoekmachines en generatieve modellen.</p>
+            <p class="tech">Next.js · Gemini API</p>
           </div>
-          <div class="project-foot">
-            <div class="chips"><span class="chip">Next.js</span><span class="chip">Gemini API</span></div>
-            <button class="more-btn" aria-expanded="false" aria-controls="more-geo">Meer details</button>
-          </div>
+          <button class="more-btn" aria-expanded="false" aria-controls="more-geo">Meer details</button>
         </article>
 
-        <article class="panel span-6 project" data-skills="">
+        <article class="panel project" data-cat="web" data-skills="">
           <p class="label">Tool</p>
           <h3 class="title">Persoonlijk dashboard</h3>
-          <p>dash_co: mijn eigen dashboard voor pipeline, API-kosten en planning.</p>
+          <p>dash_co: pipeline, API-kosten en planning in één overzicht.</p>
           <div class="project-more" id="more-dash">
-            <p>Eén overzicht van lopend werk, de kosten van de AI-API's die ik gebruik en mijn planning.</p>
+            <p>Eén plek voor lopend werk, de kosten van de AI-API's die ik gebruik en mijn planning.</p>
           </div>
-          <div class="project-foot">
-            <div class="chips"><span class="chip">Dashboard</span></div>
-            <button class="more-btn" aria-expanded="false" aria-controls="more-dash">Meer details</button>
-          </div>
+          <button class="more-btn" aria-expanded="false" aria-controls="more-dash">Meer details</button>
         </article>
 
-        <article class="panel span-6 project" data-skills="">
+        <article class="panel project" data-cat="game" data-skills="">
           <p class="label">Game</p>
           <h3 class="title">Bobber Bay</h3>
-          <p>Eigen 3D-vissersgame met een handgetekende 2D-stijl.</p>
+          <p>3D-vissersgame met een handgetekende 2D-stijl.</p>
           <div class="project-more" id="more-bobber">
-            <p>Een hobbyproject waarin ik 3D-rendering met three.js combineer met een handgetekende 2D-look.</p>
+            <p>Een hobbyproject waarin ik 3D-rendering combineer met een handgetekende 2D-look.</p>
+            <p class="tech">three.js</p>
           </div>
-          <div class="project-foot">
-            <div class="chips"><span class="chip">three.js</span></div>
-            <button class="more-btn" aria-expanded="false" aria-controls="more-bobber">Meer details</button>
-          </div>
+          <button class="more-btn" aria-expanded="false" aria-controls="more-bobber">Meer details</button>
         </article>
 
       </div>
     </section>
 
-    <!-- 7. Blog + contact -->
-    <section class="section bento" id="contact" aria-label="Blog en contact">
-      <!-- Werk deze kaart bij als je een nieuwe post plaatst -->
-      <article class="panel span-6 card-link">
-        <p class="label">Laatste blogpost</p>
-        <h2 class="title"><a href="blog/posts/wat-ik-leerde-van-ai-trainingen.html">Wat ik leerde van AI-trainingen geven aan collega's zonder techachtergrond</a></h2>
-        <p>Begin bij hun werk, niet bij de tool. Een paar nuchtere lessen uit de praktijk.</p>
-        <span class="more" aria-hidden="true">Lees verder →</span>
-      </article>
+    <!-- 4. SKILLS & ACHTERGROND -->
+    <section class="section" id="skills" aria-labelledby="skills-titel">
+      <div class="section-head">
+        <h2 class="title" id="skills-titel">Skills &amp; achtergrond</h2>
+      </div>
+      <div class="bento">
+        <div class="panel span-6">
+          <h3 class="label">Skills · balkhoogte = aantal rollen en projecten</h3>
+          <!-- De balken worden door script.js berekend uit de data-skills van rollen en projecten -->
+          <div class="bars skill-chart" aria-hidden="true"></div>
+          <div class="skill-groups">
+            <div>
+              <h4 style="--c:var(--violet)">Microsoft 365</h4>
+              <ul>
+                <li data-skill="m365">Microsoft 365</li>
+                <li data-skill="copilot">Copilot</li>
+                <li data-skill="copilot-studio">Copilot Studio</li>
+                <li data-skill="power-automate">Power Automate</li>
+                <li data-skill="sharepoint">SharePoint</li>
+              </ul>
+            </div>
+            <div>
+              <h4 style="--c:var(--lavender)">AI</h4>
+              <ul>
+                <li data-skill="agents">AI agents</li>
+                <li data-skill="rag">RAG</li>
+                <li data-skill="langchain">LangChain</li>
+                <li data-skill="nlp">NLP</li>
+                <li data-skill="prompt">Prompt engineering</li>
+              </ul>
+            </div>
+            <div>
+              <h4 style="--c:var(--blue)">Development</h4>
+              <ul>
+                <li data-skill="python">Python</li>
+                <li data-skill="react">React</li>
+                <li data-skill="typescript">TypeScript</li>
+                <li data-skill="nextjs">Next.js</li>
+              </ul>
+            </div>
+            <div>
+              <h4 style="--c:var(--ink)">Training</h4>
+              <ul>
+                <li data-skill="training">AI-trainingen geven</li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-      <div class="panel span-6 contact">
-        <p class="label">Contact</p>
-        <h2 class="title">Op zoek naar iemand die AI echt laat landen?</h2>
-        <ul class="contact-list">
-          <!-- VUL-IN: e-mailadres -->
-          <li><a href="mailto:VUL-IN@example.com"><span class="icon-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></span><span>E-mail<small>VUL-IN@example.com</small></span></a></li>
-          <!-- VUL-IN: LinkedIn-URL -->
-          <li><a href="https://www.linkedin.com/in/VUL-IN"><span class="icon-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3a1.97 1.97 0 1 0 0 3.94 1.97 1.97 0 0 0 0-3.94Zm15.19 10.3c0-3.1-1.66-4.98-4.32-4.98-1.92 0-2.78 1.06-3.26 1.8V8.5H9.5V20h3.38v-6.06c0-1.6.3-3.14 2.28-3.14 1.95 0 1.98 1.82 1.98 3.24V20h3.3v-6.7Z"/></svg></span><span>LinkedIn<small>Okan Çelik</small></span></a></li>
-          <li><a href="https://github.com/okancelikOB"><span class="icon-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.23c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49l-.01-1.73c-2.78.62-3.37-1.37-3.37-1.37-.46-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.35 1.12 2.92.86.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.36 9.36 0 0 1 12 6.84c.85 0 1.7.12 2.5.34 1.9-1.33 2.74-1.05 2.74-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.64 1.03 2.76 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9l-.01 2.81c0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.23C22 6.58 17.52 2 12 2Z"/></svg></span><span>GitHub<small>okancelikOB</small></span></a></li>
-        </ul>
+        <div class="panel span-3">
+          <h3 class="label">Opleiding · oud → nieuw</h3>
+          <ol class="steps">
+            <li><strong>VWO</strong><span class="sub">Economie &amp; Maatschappij</span></li>
+            <li><strong>Pre-University College</strong><span class="sub">VU Amsterdam</span></li>
+            <li><strong>BSc Artificial Intelligence</strong><span class="sub">VU Amsterdam</span></li>
+          </ol>
+        </div>
+
+        <div class="panel span-3">
+          <h3 class="label">Talen</h3>
+          <ul class="lang-list">
+            <li>Turks <span>moedertaal</span></li>
+            <li>Nederlands <span>vloeiend</span></li>
+            <li>Engels <span>vloeiend</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. CONTACT -->
+    <section class="section" id="contact" aria-labelledby="contact-titel">
+      <div class="section-head">
+        <h2 class="title" id="contact-titel">Contact</h2>
+      </div>
+      <div class="bento">
+        <div class="panel span-6 contact">
+          <p class="lead-text">Op zoek naar iemand die AI echt laat landen in je organisatie? Ik hoor graag van je.</p>
+          <ul class="contact-list">
+            <!-- VUL-IN: e-mailadres -->
+            <li><a href="mailto:VUL-IN@example.com"><span class="icon-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></span><span>E-mail<small>VUL-IN@example.com</small></span></a></li>
+            <!-- VUL-IN: LinkedIn-URL -->
+            <li><a href="https://www.linkedin.com/in/VUL-IN"><span class="icon-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3a1.97 1.97 0 1 0 0 3.94 1.97 1.97 0 0 0 0-3.94Zm15.19 10.3c0-3.1-1.66-4.98-4.32-4.98-1.92 0-2.78 1.06-3.26 1.8V8.5H9.5V20h3.38v-6.06c0-1.6.3-3.14 2.28-3.14 1.95 0 1.98 1.82 1.98 3.24V20h3.3v-6.7Z"/></svg></span><span>LinkedIn<small>Okan Çelik</small></span></a></li>
+            <li><a href="https://github.com/okancelikOB"><span class="icon-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.23c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49l-.01-1.73c-2.78.62-3.37-1.37-3.37-1.37-.46-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.35 1.12 2.92.86.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.36 9.36 0 0 1 12 6.84c.85 0 1.7.12 2.5.34 1.9-1.33 2.74-1.05 2.74-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.64 1.03 2.76 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9l-.01 2.81c0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.23C22 6.58 17.52 2 12 2Z"/></svg></span><span>GitHub<small>okancelikOB</small></span></a></li>
+          </ul>
+        </div>
+
+        <!-- Werk deze kaart bij als je een nieuwe post plaatst -->
+        <article class="panel span-6 card-link">
+          <p class="label">Laatste blogpost</p>
+          <h3 class="title"><a href="blog/posts/wat-ik-leerde-van-ai-trainingen.html">Wat ik leerde van AI-trainingen geven aan collega's zonder techachtergrond</a></h3>
+          <p>Begin bij hun werk, niet bij de tool. Een paar nuchtere lessen uit de praktijk.</p>
+          <span class="more" aria-hidden="true">Lees verder →</span>
+        </article>
       </div>
     </section>
 
   </main>
-
-  <!-- Verschijnt onderin zodra een skill-filter actief is -->
-  <div class="filter-bar" hidden>
-    <p role="status" aria-live="polite"></p>
-    <button type="button" class="filter-clear">Filter wissen</button>
-  </div>
 
   <footer class="site-footer">
     <span>Okan Çelik</span>
