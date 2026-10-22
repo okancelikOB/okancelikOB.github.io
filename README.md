@@ -4,7 +4,7 @@ Persoonlijke cv-site met blog. Puur statisch: HTML, CSS en een beetje vanilla JS
 
 ```
 index.html                 cv / homepage (bento-dashboard)
-style.css                  alle styling (kleuren staan bovenin als CSS-variabelen)
+style.css                  alle styling (kleuren staan bovenin als CSS-variabelen; accent = --violet)
 script.js                  decoratieve grafieken en de klikbare werkervaring-tijdlijn
 assets/                    afbeeldingen en favicon
 blog/index.html            overzicht van alle posts
@@ -14,12 +14,12 @@ blog/posts/post-template.html   template voor nieuwe posts
 
 ## Eerst invullen
 
-Zoek in alle bestanden op `VUL-IN` en vervang:
+Zoek in alle bestanden op `[JOUW` en vervang:
 
-- `VUL-IN@example.com` door je e-mailadres
-- `https://www.linkedin.com/in/VUL-IN` door je LinkedIn-URL
+- `[JOUW E-MAIL]` door je e-mailadres (in `mailto:[JOUW E-MAIL]` blijft `mailto:` staan)
+- `[JOUW LINKEDIN-URL]` door je volledige LinkedIn-URL
 
-Deze staan in de header van elke pagina en in het contactpaneel op `index.html`.
+Deze staan in de header van elke pagina, in de icoonrij van het hero-paneel en in het contactpaneel op `index.html`.
 
 ## Een blogpost toevoegen
 

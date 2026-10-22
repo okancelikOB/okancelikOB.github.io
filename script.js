@@ -98,6 +98,14 @@ if (tracker) {
     if (focus) tabs[index].focus();
   };
 
+  // Stippen: tooltip met de rol, klik selecteert de rol (de tabs blijven de toegankelijke bediening).
+  trackerDots.forEach((dot, i) => {
+    const org = tabs[i].querySelector(".org")?.textContent;
+    const role = tabs[i].querySelector(".role-name")?.textContent;
+    dot.dataset.tip = org ? `${role}, ${org}` : role;
+    dot.addEventListener("click", () => select(i));
+  });
+
   tabs.forEach((tab, i) => {
     tab.addEventListener("click", () => select(i));
     tab.addEventListener("keydown", (e) => {
@@ -122,11 +130,14 @@ const chart = document.querySelector(".skill-chart");
 
 if (chart) {
   const items = [...document.querySelectorAll(".skill-groups li[data-skill]")];
-  const max = Math.max(...items.map((li) => countFor(li.dataset.skill)));
+  const counts = items.map((li) => countFor(li.dataset.skill));
+  const max = Math.max(...counts);
+  const top3 = [...counts].sort((a, b) => b - a)[2]; // de meest gebruikte skills worden limoen
   items.forEach((li, i) => {
     const bar = document.createElement("span");
     bar.dataset.g = [...li.closest(".skill-groups").children].indexOf(li.closest(".skill-groups > div")) + 1;
-    bar.style.setProperty("--h", `${Math.max(8, (countFor(li.dataset.skill) / max) * 100)}%`);
+    if (counts[i] >= top3) bar.className = "is-hi";
+    bar.style.setProperty("--h", `${Math.max(8, (counts[i] / max) * 100)}%`);
     bar.style.setProperty("--i", i);
     chart.append(bar);
   });
