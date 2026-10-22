@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+  TEMPLATE VOOR EEN NIEUWE BLOGPOST
+  1. Kopieer dit bestand in blog/posts/ en geef het een korte naam, bv. mijn-nieuwe-post.html
+     (kleine letters, koppeltekens, geen spaties).
+  2. Pas alles aan waar "AANPASSEN" staat.
+  3. Haal de regel <meta name="robots" ...> hieronder weg.
+  4. Voeg een kaart toe in blog/index.html (en werk eventueel "Laatste blogpost" op index.html bij).
+  Afbeeldingen zet je in assets/ en gebruik je zo:
+  <img src="../../assets/mijn-afbeelding.jpg" alt="Beschrijf wat er op de afbeelding staat">
+-->
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>AANPASSEN: titel van de post · Okan Çelik</title>
+  <meta name="description" content="AANPASSEN: één zin samenvatting voor zoekmachines.">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Naar de inhoud</a>
+
+<div class="wrap">
+  <header class="site-header">
+    <a class="logo" href="../../index.html"><span class="logo-mark" aria-hidden="true"></span>Okan Çelik</a>
+    <nav class="nav" aria-label="Hoofdnavigatie">
+      <ul>
+        <li><a href="../../index.html">Overzicht</a></li>
+        <li><a href="../../index.html#ervaring">Ervaring</a></li>
+        <li><a href="../../index.html#projecten">Projecten</a></li>
+        <li><a href="../../blog/" aria-current="page">Blog</a></li>
+      </ul>
+    </nav>
+    <div class="icon-links">
+      <!-- VUL-IN: vervang het e-mailadres -->
+      <a class="icon-btn" href="mailto:VUL-IN@example.com" aria-label="E-mail">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg>
+      </a>
+      <!-- VUL-IN: vervang de LinkedIn-URL -->
+      <a class="icon-btn" href="https://www.linkedin.com/in/VUL-IN" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3a1.97 1.97 0 1 0 0 3.94 1.97 1.97 0 0 0 0-3.94Zm15.19 10.3c0-3.1-1.66-4.98-4.32-4.98-1.92 0-2.78 1.06-3.26 1.8V8.5H9.5V20h3.38v-6.06c0-1.6.3-3.14 2.28-3.14 1.95 0 1.98 1.82 1.98 3.24V20h3.3v-6.7Z"/></svg>
+      </a>
+      <a class="icon-btn" href="https://github.com/okancelikOB" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.23c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49l-.01-1.73c-2.78.62-3.37-1.37-3.37-1.37-.46-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.35 1.12 2.92.86.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.36 9.36 0 0 1 12 6.84c.85 0 1.7.12 2.5.34 1.9-1.33 2.74-1.05 2.74-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.64 1.03 2.76 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9l-.01 2.81c0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.23C22 6.58 17.52 2 12 2Z"/></svg>
+      </a>
+    </div>
+  </header>
+  <main id="main">
+    <article class="panel article">
+      <a class="back" href="../">← Alle posts</a>
+      <p><span class="chip">AANPASSEN: onderwerp</span></p>
+      <h1>AANPASSEN: titel van de post</h1>
+      <p class="lead">AANPASSEN: korte inleiding van één of twee zinnen.</p>
+
+      <div class="prose">
+        <h2>Tussenkop</h2>
+        <p>Gewone alinea tekst.</p>
+
+        <ul>
+          <li>Een opsomming</li>
+          <li>Nog een punt</li>
+        </ul>
+
+        <blockquote>Een citaat of kernzin.</blockquote>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span>Okan Çelik</span>
+    <a href="../">← Terug naar de blog</a>
+  </footer>
+</div>
+</body>
+</html>
